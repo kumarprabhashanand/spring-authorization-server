@@ -1,0 +1,20 @@
+server:
+  port: 9092
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          articles-client:
+            client-id: oauth-client
+            client-secret: oauth-secret
+            #client-authentication-method: client_secret_jwt
+            authorization-grant-type: client_credentials
+            scope: articles.read
+            client-name: spring-client
+        provider:
+          articles-client:
+            token-uri: http://localhost:9090/oauth2/token
+            #issuer-uri: http://localhost:9090
+
